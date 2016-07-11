@@ -22,7 +22,7 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-require_once(t3lib_extMgm::extPath('caretaker_instance', 'services/class.tx_caretakerinstance_RemoteTestServiceBase.php'));
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class tx_caretakerintegrity_CheckFolderIntegrityTestService extends tx_caretakerinstance_RemoteTestServiceBase {
 	
@@ -66,7 +66,7 @@ class tx_caretakerintegrity_CheckFolderIntegrityTestService extends tx_caretaker
 		}
 		
 		$path = 'EXT:caretaker_integrity/res/fingerprints/' . $preset;
-		$path = t3lib_div::getFileAbsFileName($path);
+		$path = GeneralUtility::getFileAbsFileName($path);
 		if (!file_exists($path)) {
 			return false;
 		} else {
@@ -131,4 +131,3 @@ class tx_caretakerintegrity_CheckFolderIntegrityTestService extends tx_caretaker
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/caretaker_integrity/services/class.tx_caretakerintegrity_CheckFolderIntegrityTestService.php'])	{
 	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/caretaker_integrity/services/class.tx_caretakerintegrity_CheckFolderIntegrityTestService.php']);
 }
-?>
