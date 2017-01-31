@@ -1,4 +1,5 @@
 <?php
+namespace Caretaker\CaretakerIntegrity;
 
 /***************************************************************
  *  Copyright notice
@@ -26,7 +27,7 @@
 /**
  *
  */
-class FingerprintGenerator {
+class CoreFingerprintGenerator {
 
 	/**
 	 *
@@ -43,8 +44,11 @@ class FingerprintGenerator {
 	 */
 	protected $fingerprintsFolder;
 
-	public function __construct() {
-		$this->fingerprintsFolder = dirname(__FILE__) . '/fingerprints/';
+    /**
+     * CoreFingerprintGenerator constructor.
+     */
+    public function __construct() {
+		$this->fingerprintsFolder = dirname(__FILE__) . '/../res/fingerprints/';
 		$this->tempFolder = dirname(__FILE__) . '/../../../../typo3temp/';
 	}
 
@@ -171,8 +175,3 @@ class FingerprintGenerator {
 			$command . (!empty($options) ? ' ' . $options : '');
 	}
 }
-
-$generator = new FingerprintGenerator();
-$generator->start();
-
-?>

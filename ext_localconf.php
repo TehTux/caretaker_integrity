@@ -7,6 +7,14 @@ if (!defined ('TYPO3_MODE')) {
 	die('Access denied.');
 }
 
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][\Caretaker\CaretakerIntegrity\CoreFingerprintGeneratorTask::class] = array(
+    'extension' => $_EXTKEY,
+    'title' => "Generate core fingerprints",
+    'description' => "Generate core fingerprints",
+    'additionalFields' => ''
+);
+
+
 if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 4001000) {
 	$TYPO3_CONF_VARS['SC_OPTIONS']['GLOBAL']['cliKeys']['caretaker_integrity'] = array(
 		'EXT:caretaker_integrity/classes/class.tx_caretakerintegrity_Cli.php',
