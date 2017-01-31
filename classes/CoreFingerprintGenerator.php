@@ -46,9 +46,10 @@ class CoreFingerprintGenerator {
 
     /**
      * CoreFingerprintGenerator constructor.
+     * @param $fingerprintPath
      */
-    public function __construct() {
-		$this->fingerprintsFolder = dirname(__FILE__) . '/../res/fingerprints/';
+    public function __construct($fingerprintPath) {
+		$this->fingerprintsFolder = $fingerprintPath;
 		$this->tempFolder = dirname(__FILE__) . '/../../../../typo3temp/';
 	}
 
