@@ -14,7 +14,7 @@
     "typo3-ter/caretaker-integrity": "self.version"
   },
   "require": {
-    "typo3/cms": "^6.2|^7.6",
+    "typo3/cms": "^6.2|^7.6|^8.7",
     "caretaker/caretaker": ">=0.7.0"
   }
 }
