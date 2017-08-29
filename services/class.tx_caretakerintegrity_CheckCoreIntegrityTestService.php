@@ -24,8 +24,6 @@
 
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
-require_once(t3lib_extMgm::extPath('caretaker_instance', 'services/class.tx_caretakerinstance_RemoteTestServiceBase.php'));
-
 class tx_caretakerintegrity_CheckCoreIntegrityTestService extends tx_caretakerinstance_RemoteTestServiceBase {
 
 	const FILE_FILTER = '(^typo3_src/(\.gitignore|\.gitmodules|CVS|SVNreadme\.txt|[^/]*\.webprj|[^/]*\.orig|[^/]*~|\.travis\.yml)$|/src(/|$)|/tests(/|$))';

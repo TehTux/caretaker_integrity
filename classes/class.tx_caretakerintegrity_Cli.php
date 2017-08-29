@@ -29,10 +29,6 @@ use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
 if (!defined('TYPO3_cliMode'))  die('You cannot run this script directly!');
 
-require_once(PATH_t3lib.'class.t3lib_cli.php');
-
-require_once(t3lib_extMgm::extPath('caretaker_instance') . 'classes/class.tx_caretakerinstance_Operation_GetFilesystemChecksum.php');
-
 class tx_caretakerintegrity_Cli extends CommandLineController {
 	
 	/**

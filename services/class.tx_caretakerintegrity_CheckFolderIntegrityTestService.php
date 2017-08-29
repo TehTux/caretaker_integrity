@@ -24,8 +24,6 @@
 
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
-require_once(t3lib_extMgm::extPath('caretaker_instance', 'services/class.tx_caretakerinstance_RemoteTestServiceBase.php'));
-
 class tx_caretakerintegrity_CheckFolderIntegrityTestService extends tx_caretakerinstance_RemoteTestServiceBase {
 	
 	public function runTest() {
