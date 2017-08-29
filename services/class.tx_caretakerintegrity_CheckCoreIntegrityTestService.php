@@ -22,6 +22,8 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
+
 require_once(t3lib_extMgm::extPath('caretaker_instance', 'services/class.tx_caretakerinstance_RemoteTestServiceBase.php'));
 
 class tx_caretakerintegrity_CheckCoreIntegrityTestService extends tx_caretakerinstance_RemoteTestServiceBase {
@@ -88,9 +90,9 @@ class tx_caretakerintegrity_CheckCoreIntegrityTestService extends tx_caretakerin
 		$filename = 'typo3_src-' . $remoteTYPO3Version . '.fingerprint';
 		$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['caretaker_integrity']);
 		if (!empty($extensionConfiguration['path.']['fingerprints'])) {
-			$path = rtrim(t3lib_div::fixWindowsFilePath($extensionConfiguration['path.']['fingerprints']), '/') . '/';
+			$path = rtrim(GeneralUtility::fixWindowsFilePath($extensionConfiguration['path.']['fingerprints']), '/') . '/';
 		}
-		$fingerprintFile = t3lib_div::getFileAbsFileName($path . $filename, FALSE);
+		$fingerprintFile = GeneralUtility::getFileAbsFileName($path . $filename, FALSE);
 		if (!file_exists($fingerprintFile)) {
 			return $this->createTestResult(
 				'Can\'t find local fingerprint file "' . $filename . '" in defined path "' . $path .'"',

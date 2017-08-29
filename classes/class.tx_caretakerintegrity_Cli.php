@@ -23,14 +23,17 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use \TYPO3\CMS\Core\Controller\CommandLineController;
+use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
+
 if (!defined('TYPO3_cliMode'))  die('You cannot run this script directly!');
 
 require_once(PATH_t3lib.'class.t3lib_cli.php');
 
 require_once(t3lib_extMgm::extPath('caretaker_instance') . 'classes/class.tx_caretakerinstance_Operation_GetFilesystemChecksum.php');
 
-
-class tx_caretakerintegrity_Cli extends t3lib_cli {
+class tx_caretakerintegrity_Cli extends CommandLineController {
 	
 	/**
 	 * Constructor
@@ -38,7 +41,7 @@ class tx_caretakerintegrity_Cli extends t3lib_cli {
     public function __construct () {
 
        		// Running parent class constructor
-        parent::t3lib_cli();
+		parent::__construct();
 
        		// Setting help texts:
         $this->cli_help['name'] = 'Caretaker_integrity CLI';        
@@ -84,7 +87,7 @@ class tx_caretakerintegrity_Cli extends t3lib_cli {
     
     
     protected function getFingerprint($path) {
-    	$operation = t3lib_div::makeinstance('tx_caretakerinstance_Operation_GetFilesystemChecksum');
+    	$operation = GeneralUtility::makeinstance('tx_caretakerinstance_Operation_GetFilesystemChecksum');
  
     	// $operation = new tx_caretakerinstance_Operation_GetFilesystemChecksum();
 		
@@ -123,7 +126,7 @@ class tx_caretakerintegrity_Cli extends t3lib_cli {
 }
 
 // Call the functionality
-$sobe = t3lib_div::makeInstance('tx_caretakerintegrity_Cli');
+$sobe = GeneralUtility::makeInstance('tx_caretakerintegrity_Cli');
 $sobe->cli_main($_SERVER['argv']);
 
 
